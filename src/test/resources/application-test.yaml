@@ -1,0 +1,27 @@
+spring:
+  name: jbot-test
+
+# Cassandre trading bot configuration.
+cassandre:
+  trading:
+    bot:
+      exchange:
+        driver-class-name: org.knowm.xchange.simulated.SimulatedExchange
+        username: test
+        passphrase: test
+        key: test
+        secret: test
+      modes:
+        dry: true
+        sandbox: true
+      exchange-account-id: test
+      strategies:
+        - basic-test-strategy
+
+# Enable the basic test strategy.
+basic-test-strategy:
+  enabled: true
+
+# Server configuration.
+server:
+  port: 8081
