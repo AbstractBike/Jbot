@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.4'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'market.scalable'
+version = '0.0.1-SNAPSHOT'
+description = 'Java crypto bot'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(24)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter:6.0.2'
+    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter-test:6.0.2'
+    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter-api-graphql:6.0.2'
+    implementation 'org.knowm.xchange:xchange-binance:5.2.2'
+    implementation 'org.knowm.xchange:xchange-stream-binance:5.2.2'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:postgresql'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
