@@ -21,25 +21,28 @@ configurations {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter:6.0.2'
-    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter-test:6.0.2'
-    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter-api-graphql:6.0.2'
+    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter:6.0.3-SNAPSHOT'
+    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter-test:6.0.3-SNAPSHOT'
+//    implementation 'tech.cassandre.trading.bot:cassandre-trading-bot-spring-boot-starter-api-graphql:6.0.3-SNAPSHOT'
+    implementation 'org.knowm.xchange:xchange-kucoin:5.2.2'
     implementation 'org.knowm.xchange:xchange-binance:5.2.2'
     implementation 'org.knowm.xchange:xchange-stream-binance:5.2.2'
 
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'io.micrometer:micrometer-tracing-bridge-brave'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+    runtimeOnly 'org.hsqldb:hsqldb:2.7.4'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
-
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

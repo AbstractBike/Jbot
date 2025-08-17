@@ -6,11 +6,9 @@ cassandre:
   trading:
     bot:
       exchange:
-        driver-class-name: org.knowm.xchange.simulated.SimulatedExchange
-        username: test
-        passphrase: test
-        key: test
-        secret: test
+        driver-class-name: binance
+        key: ${BINANCE_API_KEY_0}
+        secret: ${BINANCE_API_SECRET_0}
       modes:
         dry: true
         sandbox: true

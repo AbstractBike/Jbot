@@ -6,10 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Slf4j
 @SpringBootApplication
-public class JbotApplication {
+
+public class JBotApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JbotApplication.class, args);
+		SpringApplication.run(JBotApplication.class, args);
 	}
 
 }

@@ -1,5 +1,26 @@
 spring:
   name: jbot
+#  datasource:
+#    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+#    url: jdbc:hsqldb:mem:cassandre
+#    username: sa
+#    password: ""
 
+server.port: 9876
 
-server.port: 8765
+cassandre:
+  trading:
+    bot:
+      exchange:
+        driver-class-name: org.knowm.xchange.binance.BinanceExchange
+        username: kucoin.cassandre.test@gmail.com
+        passphrase: cassandre
+        key: ${BINANCE_API_KEY_0}
+        secret: ${BINANCE_API_SECRET_0}
+        modes:
+          sandbox: true
+          dry: true
+        rates:
+          account: 2000
+          ticker: 2000
+          trade: 2000
